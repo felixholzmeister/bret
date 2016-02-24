@@ -1,0 +1,228 @@
+# GERMAN TRANSLATION FOR THE BOMB RISK ELICITATION TASK APP.
+# Copyright (C) 2016
+# This file is distributed under the same license as the BRET package.
+# Felix Holzmeister <felix.holzmeister@uibk.ac.at>
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-02-10 17:41+0100\n"
+"PO-Revision-Date: 2016-02-10 17:41+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.6\n"
+
+# title/heading of the decision page
+#: .\templates\bret\Decision.html:59
+msgid "Your Decision"
+msgstr "Ihre Entscheidung"
+
+# label for counter below the boxes
+#: .\templates\bret\Decision.html:126
+msgid "No. of boxes collected:"
+msgstr "Anzahl der gesammelten Boxen:"
+
+# label for counter below the boxes
+#: .\templates\bret\Decision.html:133
+msgid "No. of boxes remaining:"
+msgstr "Anzahl der verbleibenden Boxen:"
+
+# label for counter below the boxes
+#: .\templates\bret\Decision.html:141
+msgid "No. of boxes to collect:"
+msgstr "Anzahl der zu sammelnden Boxen:"
+
+# 'start' button
+#: .\templates\bret\Decision.html:166
+msgid "Start"
+msgstr "Start"
+
+# 'stop' button
+#: .\templates\bret\Decision.html:178
+msgid "Stop"
+msgstr "Stopp"
+
+# 'solve' button
+#: .\templates\bret\Decision.html:191
+msgid "Solve"
+msgstr "Auflösen"
+
+# title/header of the instructions page
+#: .\templates\bret\Instructions.html:18
+msgid "Instructions"
+msgstr "Instruktionen"
+
+#: .\templates\bret\Instructions.html:29
+#, python-format
+msgid ""
+"In the following, you will see a %(num_rows)sx%(num_cols)s-matrix containing "
+"%(num_boxes)s boxes on your screen."
+msgstr ""
+"Nachfolgend sehen sie eine %(num_rows)sx%(num_cols)s-Matrix, die %(num_boxes)"
+"s Boxen beinhaltet."
+
+#: .\templates\bret\Instructions.html:35
+#, python-format
+msgid ""
+"As soon as you start the task by hitting the 'Start' button, one of the "
+"boxes is collected per second, starting from the top-left corner. Once "
+"collected, the box marked by a tick symbol. For each box collected you earn %"
+"(box_value)s."
+msgstr ""
+"Sobald Sie die Aufgabe durch Klicken des 'Start' Buttons beginnen, wird eine "
+"Box pro Sekunde - beginnend in der oberen linken Ecke - gesammelt. Bereits "
+"gesammelte Boxen werden mit einem Häkchen markiert. Für jede gesammelte Box "
+"erhalten Sie %(box_value)s."
+
+#: .\templates\bret\Instructions.html:43
+#, python-format
+msgid ""
+"Behind one of the boxes hides a bomb that destroys everything that has been "
+"collected. The remaining %(num_nobomb)s boxes are worth %(box_value)s each. "
+"You do not know where the bomb is located. You only know that the bomb can "
+"be in any place with equal probability."
+msgstr ""
+"Hinter einer der Boxen ist eine Bombe versteckt, die alles zerstört, was "
+"bisher eingesammelt wurde. Die verbleibenden %(num_nobomb)s Boxen sind "
+"jeweils %(box_value)s wert. Sie wissen nicht hinter welcher Box die Bombe "
+"versteckt ist. Sie wissen nur, dass sich die Bombe in einer beliebigen Box "
+"mit gleicher Wahrscheinlichkeit befindet."
+
+#: .\templates\bret\Instructions.html:51
+msgid ""
+"Your task is to choose when to stop the collecting process. You do so by "
+"hitting 'Stop' at any time. If you collect the box where the bomb is "
+"located, the bomb will explode and you will earn zero. If you stop before "
+"collecting the bomb, you gain the amount accumulated that far."
+msgstr ""
+"Ihre Aufgabe besteht darin, den Sammelprozess zu beenden. Dies geschieht "
+"durch einen Klick auf den Button 'Stop' zu jeder beliebigen Zeit. Wenn Sie "
+"die Box einsammeln, in der sich die Bombe befindet, wird die Bombe "
+"explodieren und ihre Auszahlung beträgt null. Wenn Sie die Aufgabe beenden "
+"ohne die Bombe einzusammeln erhalten Sie den bis dahin gesammelten Betrag."
+
+#: .\templates\bret\Instructions.html:58
+msgid ""
+"At the end of the task boxes are toggled by hitting the 'Solve' button. A "
+"dollar sign or a fire symbol (for the bomb) will be shown on each of your "
+"collected boxes."
+msgstr ""
+"Nachdem Sie die Aufgabe mit 'Stop' beendet haben, können die Boxen durch "
+"einen Klick auf den Button 'Auflösen' umgedreht werden. Ein Dollarzeichen "
+"oder ein Feuersymbol (für die Bombe) wird auf jeder von Ihnen gesammelten "
+"Box angezeigt."
+
+# title/heading of the results page
+#: .\templates\bret\Results.html:18
+msgid "Results"
+msgstr "Ergebnis"
+
+#: .\templates\bret\Results.html:32
+#, python-format
+msgid "You chose to collect %(boxes_collected)s out of %(boxes_total)s boxes."
+msgstr ""
+"Sie haben sich entschieden %(boxes_collected)s von %(boxes_total)s Boxen zu "
+"sammeln."
+
+#: .\templates\bret\Results.html:37
+#, python-format
+msgid ""
+"The bomb was hidden behind the box in row %(bomb_row)s, column %(bomb_col)s."
+msgstr ""
+"Die Bombe war hinter der Box in Reihe %(bomb_row)s, Spalte %(bomb_col)s "
+"versteckt."
+
+#: .\templates\bret\Results.html:43
+#, python-format
+msgid ""
+"The bomb was among your %(boxes_collected)s collected boxes.<br/> "
+"Accordingly, all your earnings in this task were destroyed and your payoff "
+"amounts to %(payoff)s."
+msgstr ""
+"Die Bombe befand sich unter den von Ihnen gesammelten %(boxes_collected)s "
+"Boxen.<br/> Entsprechend wurden alle Ihre gesammelten Erträge zerstört und "
+"Ihre Auszahlung in dieser Aufgabe beträgt %(payoff)s."
+
+#: .\templates\bret\Results.html:48
+#, python-format
+msgid ""
+"Your collected boxes did not contain the bomb.<br/> Thus, you receive %"
+"(box_value)s for each of the %(boxes_collected)s boxes you collected such "
+"that your payoff from this task amounts to <b>%(payoff)s</b>."
+msgstr ""
+"Die Bombe war nicht unter den von Ihnen eingesammelten Boxen.<br/> "
+"Dementsprechend erhalten Sie %(box_value)s für jede der %(boxes_collected)s "
+"Boxen, sodass sich Ihre Auszahlung in dieser Aufgabe auf <b>%(payoff)s</b> "
+"beläuft."
+
+#: .\templates\bret\Results.html:58
+#, python-format
+msgid ""
+"The table below summarizes the results of your decisions in the %(num_rounds)"
+"s rounds played."
+msgstr ""
+"Die nachfolgende Tabelle fasst die Ergebnisse Ihrer Entscheidungen in den %"
+"(num_rounds)s gespielten Runden zusammen."
+
+# heading of the history table
+#: .\templates\bret\Results.html:71
+msgid "Round History"
+msgstr "Rundenübersicht"
+
+# column heading
+#: .\templates\bret\Results.html:77
+msgid "Round No."
+msgstr "Runde"
+
+# column heading
+#: .\templates\bret\Results.html:78
+msgid "No. of Boxes Collected"
+msgstr "Anzahl der gesamelten Boxen"
+
+# column heading
+#: .\templates\bret\Results.html:79
+msgid "Bomb Collected"
+msgstr "Bombe Gesammelt"
+
+# column heading
+#: .\templates\bret\Results.html:80
+msgid "Round Payoff"
+msgstr "Rundenergebnis"
+
+# whether bomb was collected
+#: .\templates\bret\Results.html:88
+msgid "Yes"
+msgstr "Ja"
+
+# whether bomb was collected
+#: .\templates\bret\Results.html:90
+msgid "No"
+msgstr "Nein"
+
+#: .\templates\bret\Results.html:102
+#, python-format
+msgid ""
+"For your payment, round number %(round_to_pay)s was randomly chosen. <br/> "
+"Thus, your final payoff in this task amounts to <b>%(total_payoff)s</b>."
+msgstr ""
+"Für Ihre Auszahlung wurde Runde Nr. %(round_to_pay)s zufällig ausgewählt.<br/"
+"> Entsprechend beträgt ihre Auszahlung aus dieser Aufgabe <b>%(total_payoff)"
+"s</b>."
+
+#: .\templates\bret\Results.html:109
+#, python-format
+msgid ""
+"Your final payoff is determined by the sum of all payoffs per round such "
+"that you final payoff in this task amounts to <b>%(total_payoff)s</b>."
+msgstr ""
+"Ihre Auszahlung wird durch die Summe aller gesammelten Beträge in allen "
+"Runden bestimmt. Dementsprechend beträgt Ihre Auszahlung aus dieser Aufgabe "
+"<b>%(total_payoff)s</b>."
+
+#~ msgid "Provide no. of boxes:"
+#~ msgstr "Anzahl auszuwählender Boxen:"
