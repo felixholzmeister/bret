@@ -156,6 +156,7 @@
 
                         <div data-ng-if="!bombTaskController.resolved">
                             <button
+                                type="button"
                                 href="javascript:void(0)"
                                 class="btn btn-success btn-md start"
                                 data-ng-if="bombTaskController.dynamic"
@@ -169,6 +170,7 @@
                             </button>
 
                             <button
+                                type="button"
                                 href="javascript:void(0)"
                                 class="btn btn-danger btn-md stop"
                                 data-ng-click="bombTaskController.stop()"
@@ -181,6 +183,7 @@
                             </button>
 
                             <button 
+                                type="button"
                                 href="javascript:void(0)"
                                 class="btn btn-primary btn-md resolve"
                                 data-ng-if="bombTaskController.feedback"
