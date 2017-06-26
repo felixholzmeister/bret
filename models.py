@@ -70,14 +70,3 @@ class Player(BasePlayer):
         # set payoffs to round_result if <random_payoff = False>
         else:
             self.payoff = self.round_result
-
-
-    # --- store values as global variables for session-wide use
-    # ------------------------------------------------------------------------------------------------------------------
-    def set_globals(self):
-        self.participant.vars['bomb'] = [p.bomb for p in self.in_all_rounds()]
-        self.participant.vars['bomb_location'] = [p.bomb_location for p in self.in_all_rounds()]
-        self.participant.vars['boxes_collected'] = [p.boxes_collected for p in self.in_all_rounds()]
-        self.participant.vars['boxes_scheme'] = [p.boxes_scheme for p in self.in_all_rounds()]
-        self.participant.vars['round_result'] = [p.round_result for p in self.in_all_rounds()]
-        self.participant.vars['bret_payoff'] = [p.payoff for p in self.in_all_rounds()]
