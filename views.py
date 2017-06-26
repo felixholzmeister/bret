@@ -42,19 +42,11 @@ class Decision(Page):
         'bomb_location',
     ]
 
-    # set payoffs and globals
-    def before_next_page(self):
-        self.session.vars['reset'] = True
-        self.player.set_payoff()
-
-        if self.subsession.round_number == Constants.num_rounds:
-            self.player.set_globals()
-
     # jsonify BRET settings for Javascript application
     def vars_for_template(self):
-        reset = self.session.vars.get('reset',False)
+        reset = self.participant.vars.get('reset',False)
         if reset == True:
-           del self.session.vars['reset']
+           del self.participant.vars['reset']
 
         input = not Constants.devils_game if not Constants.dynamic else False
 
@@ -71,6 +63,7 @@ class Decision(Page):
             'box_height':    safe_json(Constants.box_height),
             'time_interval': safe_json(Constants.time_interval),
         }
+
 
 
 # ******************************************************************************************************************** #
@@ -101,7 +94,7 @@ class Results(Page):
             'bomb_row':               bomb_row,
             'bomb_col':               bomb_col,
             'round_result':           self.player.round_result,
-            'round_to_pay':           self.session.vars['round_to_pay'],
+            'round_to_pay':           self.participant.vars['round_to_pay'],
             'payoff':                 self.player.payoff,
             'total_payoff':           sum([p.payoff for p in self.player.in_all_rounds()]),
         }

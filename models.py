@@ -1,17 +1,10 @@
-# -*- coding: utf-8 -*-
-# <standard imports>
-from __future__ import division
-
+from otree.api import (
+    models, widgets, BaseSubsession, BaseGroup, BasePlayer,
+    Currency as c, currency_range
+)
 import random
 
-import otree.models
-from otree.db import models
-from otree import widgets
-from otree.common import Currency as c, currency_range, safe_json
-from otree.constants import BaseConstants
-from otree.models import BaseSubsession, BaseGroup, BasePlayer
-from setup import *
-# </standard imports>
+from .config import Constants
 
 author = 'Felix Holzmeister & Armin Pfurtscheller'
 
@@ -30,19 +23,13 @@ class Subsession(BaseSubsession):
 # *** CLASS GROUP *** #
 # ******************************************************************************************************************** #
 class Group(BaseGroup):
-    # <built-in>
-    subsession = models.ForeignKey(Subsession)
-    # </built-in>
+    pass
 
 
 # ******************************************************************************************************************** #
 # *** CLASS PLAYER *** #
 # ******************************************************************************************************************** #
 class Player(BasePlayer):
-    # <built-in>
-    subsession = models.ForeignKey(Subsession)
-    group = models.ForeignKey(Group, null=True)
-    # </built-in>
 
     # whether bomb is collected or not
     bomb = models.IntegerField()
@@ -65,7 +52,7 @@ class Player(BasePlayer):
     def set_payoff(self):
         # randomly determine round to pay on player level
         if self.subsession.round_number == 1:
-            self.session.vars['round_to_pay'] = random.randint(1,Constants.num_rounds)
+            self.participant.vars['round_to_pay'] = random.randint(1,Constants.num_rounds)
 
         # determine round_result as (potential) payoff per round
         if self.bomb == 0:
@@ -75,7 +62,7 @@ class Player(BasePlayer):
 
         # set payoffs if <random_payoff = True> to round_result of randomly chosen round
         if Constants.random_payoff == True:
-            if self.subsession.round_number == self.session.vars['round_to_pay']:
+            if self.subsession.round_number == self.participant.vars['round_to_pay']:
                 self.payoff = self.round_result
             else:
                 self.payoff = c(0)
@@ -88,9 +75,9 @@ class Player(BasePlayer):
     # --- store values as global variables for session-wide use
     # ------------------------------------------------------------------------------------------------------------------
     def set_globals(self):
-        self.session.vars['bomb'] = [p.bomb for p in self.in_all_rounds()]
-        self.session.vars['bomb_location'] = [p.bomb_location for p in self.in_all_rounds()]
-        self.session.vars['boxes_collected'] = [p.boxes_collected for p in self.in_all_rounds()]
-        self.session.vars['boxes_scheme'] = [p.boxes_scheme for p in self.in_all_rounds()]
-        self.session.vars['round_result'] = [p.round_result for p in self.in_all_rounds()]
-        self.session.vars['bret_payoff'] = [p.payoff for p in self.in_all_rounds()]
+        self.participant.vars['bomb'] = [p.bomb for p in self.in_all_rounds()]
+        self.participant.vars['bomb_location'] = [p.bomb_location for p in self.in_all_rounds()]
+        self.participant.vars['boxes_collected'] = [p.boxes_collected for p in self.in_all_rounds()]
+        self.participant.vars['boxes_scheme'] = [p.boxes_scheme for p in self.in_all_rounds()]
+        self.participant.vars['round_result'] = [p.round_result for p in self.in_all_rounds()]
+        self.participant.vars['bret_payoff'] = [p.payoff for p in self.in_all_rounds()]
