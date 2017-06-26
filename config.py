@@ -22,8 +22,8 @@ class Constants(BaseConstants):
 
     # number of rows and columns
     # i.e. the total number of boxes is determined by <num_rows> times <num_cols>
-    num_rows = 2
-    num_cols = 2
+    num_rows = 8
+    num_cols = 8
 
     # box height and box width in pixels
     # make sure that the size of the boxes fits the screen of the device
