@@ -38,7 +38,6 @@ class Decision(Page):
     form_fields = [
         'bomb',
         'boxes_collected',
-        'boxes_scheme',
         'bomb_row',
         'bomb_col',
     ]
@@ -82,6 +81,8 @@ class Results(Page):
 
     # variables for use in template
     def vars_for_template(self):
+        total_payoff = sum([p.payoff for p in self.player.in_all_rounds()])
+        self.participant.vars['bret_payoff'] = total_payoff
 
         return {
             'player_in_all_rounds':   self.player.in_all_rounds(),
@@ -94,7 +95,7 @@ class Results(Page):
             'round_result':           self.player.round_result,
             'round_to_pay':           self.participant.vars['round_to_pay'],
             'payoff':                 self.player.payoff,
-            'total_payoff':           sum([p.payoff for p in self.player.in_all_rounds()]),
+            'total_payoff':           total_payoff,
         }
 
 

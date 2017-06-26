@@ -42,10 +42,6 @@ class Player(BasePlayer):
     # number of collected boxes
     boxes_collected = models.IntegerField()
 
-    # set/scheme of collected boxes
-    boxes_scheme = models.TextField()
-
-
     # --- set round results and player's payoff
     # ------------------------------------------------------------------------------------------------------------------
     pay_this_round = models.BooleanField()
