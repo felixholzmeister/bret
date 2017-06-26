@@ -67,6 +67,9 @@ class Decision(Page):
 
         return {'otree_vars': safe_json(otree_vars)}
 
+    def before_next_page(self):
+        self.participant.vars['reset'] = True
+        self.player.set_payoff()
 
 # ******************************************************************************************************************** #
 # *** CLASS RESULTS *** #

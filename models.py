@@ -32,6 +32,7 @@ class Group(BaseGroup):
 class Player(BasePlayer):
 
     # whether bomb is collected or not
+    # store as integer because it's easier for interop with JS
     bomb = models.IntegerField()
 
     # location of bomb
@@ -51,18 +52,19 @@ class Player(BasePlayer):
     round_result = models.CurrencyField()
 
     def set_payoff(self):
+
+        # determine round_result as (potential) payoff per round
+        if self.bomb:
+            self.round_result = c(0)
+        else:
+            self.round_result = self.boxes_collected * Constants.box_value
+
+        # set payoffs if <random_payoff = True> to round_result of randomly chosen round
         # randomly determine round to pay on player level
         if self.subsession.round_number == 1:
             self.participant.vars['round_to_pay'] = random.randint(1,Constants.num_rounds)
 
-        # determine round_result as (potential) payoff per round
-        if self.bomb == 0:
-            self.round_result = c(self.boxes_collected * Constants.box_value)
-        else:
-            self.round_result = c(0)
-
-        # set payoffs if <random_payoff = True> to round_result of randomly chosen round
-        if Constants.random_payoff == True:
+        if Constants.random_payoff:
             if self.subsession.round_number == self.participant.vars['round_to_pay']:
                 self.pay_this_round = True
                 self.payoff = self.round_result
