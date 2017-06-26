@@ -441,7 +441,8 @@
 				function(){ return me.hasBomb(); },
 				function(hasBomb){
 					me.form.bomb = hasBomb;
-					me.form.bomb_location = angular.toJson(me.bomb);
+					me.form.bomb_row = me.bomb.row;
+					me.form.bomb_col = me.bomb.col;
 				}
 			);
 		};
@@ -499,7 +500,8 @@
 				bomb: 0,
 		 		boxes_scheme: [],
 		 		boxes_collected: 0,
-		 		bomb_location: null
+		 		bomb_row: null,
+				bomb_col: null
 			};
 		};
 

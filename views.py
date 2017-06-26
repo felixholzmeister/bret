@@ -39,7 +39,8 @@ class Decision(Page):
         'bomb',
         'boxes_collected',
         'boxes_scheme',
-        'bomb_location',
+        'bomb_row',
+        'bomb_col',
     ]
 
     # jsonify BRET settings for Javascript application
@@ -79,21 +80,14 @@ class Results(Page):
     # variables for use in template
     def vars_for_template(self):
 
-        bomb_row = self.player.bomb_location.split(',')[0]
-        bomb_row = bomb_row.replace('{"row":','')
-
-        bomb_col = self.player.bomb_location.split(',')[1]
-        bomb_col = bomb_col.replace('"col":','')
-        bomb_col = bomb_col.replace('}','')
-
         return {
             'player_in_all_rounds':   self.player.in_all_rounds(),
             'box_value':              Constants.box_value,
             'boxes_total':            Constants.num_rows * Constants.num_cols,
             'boxes_collected':        self.player.boxes_collected,
             'bomb':                   self.player.bomb,
-            'bomb_row':               bomb_row,
-            'bomb_col':               bomb_col,
+            'bomb_row':               self.player.bomb_row,
+            'bomb_col':               self.player.bomb_col,
             'round_result':           self.player.round_result,
             'round_to_pay':           self.participant.vars['round_to_pay'],
             'payoff':                 self.player.payoff,

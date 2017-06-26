@@ -34,8 +34,9 @@ class Player(BasePlayer):
     # whether bomb is collected or not
     bomb = models.IntegerField()
 
-    # location of bomb with row/col info
-    bomb_location = models.TextField()
+    # location of bomb
+    bomb_row = models.PositiveIntegerField()
+    bomb_col = models.PositiveIntegerField()
 
     # number of collected boxes
     boxes_collected = models.IntegerField()
