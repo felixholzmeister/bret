@@ -50,20 +50,21 @@ class Decision(Page):
 
         input = not Constants.devils_game if not Constants.dynamic else False
 
-        return {
-            'reset':         safe_json(reset),
-            'input':         safe_json(input),
-            'random':        safe_json(Constants.random),
-            'dynamic':       safe_json(Constants.dynamic),
-            'num_rows':      safe_json(Constants.num_rows),
-            'num_cols':      safe_json(Constants.num_cols),
-            'feedback':      safe_json(Constants.feedback),
-            'undoable':      safe_json(Constants.undoable),
-            'box_width':     safe_json(Constants.box_width),
-            'box_height':    safe_json(Constants.box_height),
-            'time_interval': safe_json(Constants.time_interval),
+        otree_vars = {
+            'reset':         reset,
+            'input':         input,
+            'random':        Constants.random,
+            'dynamic':       Constants.dynamic,
+            'num_rows':      Constants.num_rows,
+            'num_cols':      Constants.num_cols,
+            'feedback':      Constants.feedback,
+            'undoable':      Constants.undoable,
+            'box_width':     Constants.box_width,
+            'box_height':    Constants.box_height,
+            'time_interval': Constants.time_interval,
         }
 
+        return {'otree_vars': safe_json(otree_vars)}
 
 
 # ******************************************************************************************************************** #

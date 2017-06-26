@@ -19,32 +19,33 @@
     <script src="{% static 'bret/js/angular.min.js' %}"></script>
     <script src="{% static 'bret/js/bret.js' %}"></script>
     <script>(function(angular){
+        var oVars = {{ otree_vars }};
         try{
             // get bomb task module
             angular.module("bombTask")
 
             // reset properties
-            .constant("RESET",{{ reset }})
+            .constant("RESET", oVars.reset)
 
             // card size properties
-            .constant("WIDTH",{{ box_width }})
-            .constant("HEIGHT",{{ box_height }})
+            .constant("WIDTH", oVars.box_width)
+            .constant("HEIGHT", oVars.box_height)
 
             // matrix size properties
-            .constant("NUM_ROWS",{{ num_rows }})
-            .constant("NUM_COLS",{{ num_cols }})
+            .constant("NUM_ROWS", oVars.num_rows)
+            .constant("NUM_COLS", oVars.num_cols)
 
             // dynamic mode properties
-            .constant("RANDOM",{{ random }})
-            .constant("DYNAMIC",{{ dynamic }})
-            .constant("INTERVAL",{{ time_interval }})
+            .constant("RANDOM", oVars.random)
+            .constant("DYNAMIC", oVars.dynamic)
+            .constant("INTERVAL", oVars.time_interval)
 
             // visibility properties
-            .constant("FEEDBACK",{{ feedback }})
+            .constant("FEEDBACK", oVars.feedback)
 
             // behaviour properties
-            .constant("UNDOABLE",{{ undoable }})
-            .constant("INPUT",{{ input }});
+            .constant("UNDOABLE", oVars.undoable)
+            .constant("INPUT", oVars.input);
             
         } catch(e){ console.error("Could not pass server-side settings to bomb task app!");}
     })(angular);
