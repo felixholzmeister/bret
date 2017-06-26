@@ -26,13 +26,13 @@
 
     <div class="instructions">
         <p>
-            {% blocktrans trimmed with num_rows=num_rows num_cols=num_cols num_boxes=num_boxes %}
+            {% blocktrans trimmed %}
                 In the following, you will see a {{ num_rows }}x{{ num_cols }}-matrix containing
                 {{ num_boxes }} boxes on your screen.
             {% endblocktrans %}
         </p>
         <p>
-            {% blocktrans trimmed with box_value=box_value|c time_interval=time_interval %}
+            {% blocktrans trimmed %}
                 As soon as you start the task by hitting the 'Start' button,
                 one of the boxes is collected per second, starting from the top-left corner.
                 Once collected, the box marked by a tick symbol.
@@ -40,7 +40,7 @@
             {% endblocktrans %}
         </p>
         <p>
-            {% blocktrans trimmed with box_value=box_value|c num_nobomb=num_nobomb %}
+            {% blocktrans trimmed %}
                 Behind one of the boxes hides a bomb that destroys everything that has been collected.
                 The remaining {{ num_nobomb }} boxes are worth {{ box_value }} each.
                 You do not know where the bomb is located.

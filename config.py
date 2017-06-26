@@ -1,4 +1,4 @@
-from otree.api import BaseConstants
+from otree.api import BaseConstants, Currency
 
 
 # ******************************************************************************************************************** #
@@ -17,7 +17,7 @@ class Constants(BaseConstants):
     # value of single collected box
     # if the bomb is not collected, player's payoff per round is determined by <box_value> times <boxes_collected>
     # note that the currency of any earnings is determined by the oTree settings in settings.py
-    box_value = 0.10
+    box_value = Currency(0.10)
 
     # number of rows and columns
     # i.e. the total number of boxes is determined by <num_rows> times <num_cols>
