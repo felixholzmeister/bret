@@ -28,7 +28,7 @@
     <!-- information about results -->
     <!-- ----------------------------------------------------------------------------------------------------------- -->
     {% if Constants.num_rounds == 1 %}
-        <div class="panel panel-info" id="info">
+        <div class="panel panel-info">
             {% blocktrans trimmed %}
                 You chose to collect {{ boxes_collected }} out of {{ boxes_total }} boxes.
             {% endblocktrans %}
@@ -54,7 +54,7 @@
         </div>
 
     {% elif Constants.num_rounds > 1 %}
-        <div class="panel panel-info" id="info">
+        <div class="panel panel-info">
             {% blocktrans trimmed with num_rounds=Constants.num_rounds %}
                 The table below summarizes the results of your decisions in the {{ num_rounds }} rounds played.
             {% endblocktrans %}
@@ -98,14 +98,14 @@
         </div>
 
         {% if Constants.random_payoff == True %}
-            <div class="panel panel-info" id="info">
+            <div class="panel panel-info">
                 {% blocktrans trimmed %}
                     For your payment, round number {{ round_to_pay }} was randomly chosen. <br/>
                     Thus, your final payoff in this task amounts to <b>{{ total_payoff }}</b>.
                 {% endblocktrans %}
             </div>
         {% elif Constants.random_payoff == False %}
-            <div class="panel panel-info" id="info">
+            <div class="panel panel-info">
                 {% blocktrans trimmed %}
                     Your final payoff is determined by the sum of all payoffs per round
                     such that you final payoff in this task amounts to <b>{{ total_payoff }}</b>.
