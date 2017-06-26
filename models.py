@@ -46,7 +46,7 @@ class Player(BasePlayer):
 
     # --- set round results and player's payoff
     # ------------------------------------------------------------------------------------------------------------------
-    round_to_pay = models.IntegerField()
+    pay_this_round = models.BooleanField()
     round_result = models.CurrencyField()
 
     def set_payoff(self):
@@ -63,8 +63,10 @@ class Player(BasePlayer):
         # set payoffs if <random_payoff = True> to round_result of randomly chosen round
         if Constants.random_payoff == True:
             if self.subsession.round_number == self.participant.vars['round_to_pay']:
+                self.pay_this_round = True
                 self.payoff = self.round_result
             else:
+                self.pay_this_round = False
                 self.payoff = c(0)
 
         # set payoffs to round_result if <random_payoff = False>
