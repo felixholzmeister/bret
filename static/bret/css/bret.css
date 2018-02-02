@@ -1,0 +1,235 @@
+/*!
+ * BOMBTASK STYLES
+ * 
+ * @author Armin Pfurtscheller
+ * @license MIT
+ */
+
+
+/** CONTAINER */
+.panel {
+    display: inline-block;
+    padding: 20px;
+}
+
+/** MATRIX */
+#bomb-task .matrix{
+	margin: 0px;
+	text-align: center;
+}
+
+/** ROWS */
+#bomb-task .row{
+	margin: 0 auto;
+}
+
+/** ROWS */
+#bomb-task .col{
+	padding: 5px;
+ 	display: table-cell;
+}
+
+/** CARD */
+
+/** size */
+#bomb-task .holder,
+#bomb-task .holder .card .front,
+#bomb-task .holder .card .back{
+	width: 50px;
+	height: 50px;
+}
+
+/** holder */
+#bomb-task .holder{
+	perspective: 1000px;
+	transform-style: preserve-3d;
+}
+
+#bomb-task .holder.resolved .card{
+	transform: rotateY(180deg);
+}
+
+/** container */
+#bomb-task .holder .card{
+
+	display: block;
+	cursor: default;
+	position: relative;
+	text-decoration: none;
+
+	transition: 0.6s;
+	transform-style: preserve-3d;
+}
+
+/** clickable */
+#bomb-task .holder .card.clickable{
+	cursor: pointer;
+}
+
+/** disabled */
+#bomb-task .holder .card.disabled{
+	cursor: default !important;
+}
+
+#bomb-task .holder .card.disabled .front{
+	opacity: 0.8;
+}
+
+#bomb-task .holder.resolved .card.disabled .front{
+	opacity: 1;
+}
+
+#bomb-task .holder .card.disabled .front,
+#bomb-task .holder .card.disabled .back{
+	background: #fefefe !important;
+}
+
+/** CARD FRONT/BACK */
+
+/** general shared */
+#bomb-task .holder .card .front,
+#bomb-task .holder .card .back{
+
+	top: 0;
+	left: 0;
+	color: #c3c3c3;
+	display: table;
+	font-size: 1.1em;
+	position: absolute;
+	background: #fefefe;
+	vertical-align: middle;
+	box-shadow:1px 1px 5px 1px rgba(0, 0, 0, 0.35);
+
+	transition: 0.5s;
+	backface-visibility: hidden;
+	transform-style: preserve-3d;
+}
+
+/** line shared */
+#bomb-task .holder .card .front:after,
+#bomb-task .holder .card .back:after{
+	right:0;
+	bottom:0;
+	width:100%;
+	height:4px;
+	content:'';
+	display: block;
+	position: absolute;
+}
+
+/** icon shared */
+#bomb-task .holder .card .icon{
+	top:0 !important;
+	vertical-align: middle;
+	display: table-cell;
+	width: auto !important;
+}
+
+/* swap z-index of front/back if resolved */
+#bomb-task .holder.resolved .card .front{
+	z-index: 1;
+	visibility: hidden;
+}
+
+#bomb-task .holder.resolved .card .back{
+	z-index: 2;
+	visibility: visible;
+}
+
+/** CARD FRONT */
+
+/** container */
+#bomb-task .holder .card .front {
+	z-index: 2;
+	transform: rotateY(0deg);
+}
+
+#bomb-task .holder .card.clickable:hover .front,
+#bomb-task .holder .card.clickable:active .front,
+#bomb-task .holder .card.clickable.active .front{
+	background: #ececec;
+}
+
+/** line */
+#bomb-task .holder .card .front:after{
+	background: #337ab7;
+	opacity: 0.35;
+}
+
+#bomb-task .holder .card.active .front:after{
+	opacity: 1;
+}
+
+/** icon */
+#bomb-task .holder .card .front .icon{
+	display: none;
+	padding-bottom: 5px;
+}
+
+#bomb-task .holder .card.active .front .icon{
+	display: table-cell;
+}
+
+
+/** CARD BACK */
+
+/** container */
+#bomb-task .holder .card .back {
+	z-index: 1;
+	visibility: hidden;
+	transform: rotateY(-180deg);
+}
+
+/** line */
+#bomb-task .holder .card .back:after{
+	background: #5cb85c;
+}
+
+#bomb-task .holder.bomb .card .back:after{
+	background: #d9534f;
+}
+
+/** icon (usd) */
+#bomb-task .holder .card .back .fa-dollar-sign{
+	color: #346934;
+	background: rgba(52, 105, 52, 0.15);
+	display: table-cell;
+}
+
+#bomb-task .holder.bomb .card .back .fa-dollar-sign{
+	display: none;
+}
+
+/** icon (fire) */
+#bomb-task .holder .card .back .fa-bomb{
+	color: #692b28;
+	background: rgba(105, 43, 40, 0.15);
+	display: none;
+}
+
+#bomb-task .holder.bomb .card .back .fa-bomb{
+	display: table-cell;
+}
+
+
+/** COUNTER/BUTTONS */
+#bomb-task .counter,
+#bomb-task .buttons{
+	margin: 25px 0 10px 0;
+}
+
+#bomb-task .counter label{
+	margin:0;
+}
+
+#bomb-task .counter input[type=number]{
+	margin:0;
+	width: auto;
+	padding-right: 5px;
+	display: inline-block;
+}
+
+#bomb-task .counter input[type=number]::-webkit-outer-spin-button, 
+#bomb-task .counter input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: inner-spin-button !important;
+}

@@ -1,0 +1,67 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree %}
+{% load i18n %}
+
+
+{# ****************************************************************************************************************** #}
+{# *** STYLES *** #}
+{# ****************************************************************************************************************** #}
+{% block styles %}
+    <link href="{% static 'bret/css/custom.css' %}" rel="stylesheet"/>
+{% endblock %}
+
+
+{# ****************************************************************************************************************** #}
+{# *** TITLE *** #}
+{# ****************************************************************************************************************** #}
+{% block title %}
+    {% trans "Instructions" %}
+{% endblock %}
+
+
+{# ****************************************************************************************************************** #}
+{# *** CONTENT *** #}
+{# ****************************************************************************************************************** #}
+{% block content %}
+
+    <div class="instructions">
+        <p>
+            {% blocktrans trimmed %}
+                In the following, you will see a {{ num_rows }}x{{ num_cols }}-matrix containing
+                {{ num_boxes }} boxes on your screen.
+            {% endblocktrans %}
+        </p>
+        <p>
+            {% blocktrans trimmed %}
+                As soon as you start the task by hitting the 'Start' button,
+                one of the boxes is collected per second, starting from the top-left corner.
+                Once collected, the box marked by a tick symbol.
+                For each box collected you earn {{ box_value }}.
+            {% endblocktrans %}
+        </p>
+        <p>
+            {% blocktrans trimmed %}
+                Behind one of the boxes hides a bomb that destroys everything that has been collected.
+                The remaining {{ num_nobomb }} boxes are worth {{ box_value }} each.
+                You do not know where the bomb is located.
+                You only know that the bomb can be in any place with equal probability.
+            {% endblocktrans %}
+        </p>
+        <p>
+            {% blocktrans trimmed %}
+                Your task is to choose when to stop the collecting process. You do so by hitting 'Stop' at any time.
+                If you collect the box where the bomb is located, the bomb will explode and you will earn zero.
+                If you stop before collecting the bomb, you gain the amount accumulated that far.
+            {% endblocktrans %}
+        </p>
+        <p>
+            {% blocktrans trimmed %}
+                At the end of the task boxes are toggled by hitting the 'Solve' button.
+                A dollar sign or a fire symbol (for the bomb) will be shown on each of your collected boxes.
+            {% endblocktrans %}
+        </p>
+
+    </div>
+
+     {% next_button %}
+{% endblock %}
