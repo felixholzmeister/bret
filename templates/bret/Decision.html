@@ -21,7 +21,7 @@
     <script src="{% static 'bret/js/angular.min.js' %}"></script>
     <script src="{% static 'bret/js/bret.js' %}"></script>
     <script>(function(angular){
-        var oVars = {{ otree_vars }};
+        var oVars = {{ otree_vars|json }};
         try{
             // get bomb task module
             angular.module("bombTask")
