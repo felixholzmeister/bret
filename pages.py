@@ -42,33 +42,36 @@ class Decision(Page):
         'bomb_col',
     ]
 
-    # jsonify BRET settings for Javascript application
+    # BRET settings for Javascript application
     def vars_for_template(self):
         reset = self.participant.vars.get('reset',False)
-        if reset == True:
-           del self.participant.vars['reset']
+        if reset:
+            del self.participant.vars['reset']
 
         input = not Constants.devils_game if not Constants.dynamic else False
 
         otree_vars = {
-            'reset':         reset,
-            'input':         input,
-            'random':        Constants.random,
-            'dynamic':       Constants.dynamic,
-            'num_rows':      Constants.num_rows,
-            'num_cols':      Constants.num_cols,
-            'feedback':      Constants.feedback,
-            'undoable':      Constants.undoable,
-            'box_width':     Constants.box_width,
-            'box_height':    Constants.box_height,
-            'time_interval': Constants.time_interval,
+            'reset':            reset,
+            'input':            input,
+            'random':           Constants.random,
+            'dynamic':          Constants.dynamic,
+            'num_rows':         Constants.num_rows,
+            'num_cols':         Constants.num_cols,
+            'feedback':         Constants.feedback,
+            'undoable':         Constants.undoable,
+            'box_width':        Constants.box_width,
+            'box_height':       Constants.box_height,
+            'time_interval':    Constants.time_interval,
         }
 
-        return {'otree_vars': safe_json(otree_vars)}
+        return {
+            'otree_vars':       otree_vars
+        }
 
     def before_next_page(self):
         self.participant.vars['reset'] = True
         self.player.set_payoff()
+
 
 # ******************************************************************************************************************** #
 # *** CLASS RESULTS *** #
@@ -104,8 +107,8 @@ class Results(Page):
 # ******************************************************************************************************************** #
 page_sequence = [Decision]
 
-if Constants.instructions == True:
+if Constants.instructions:
     page_sequence.insert(0,Instructions)
 
-if Constants.results == True:
+if Constants.results:
     page_sequence.append(Results)
